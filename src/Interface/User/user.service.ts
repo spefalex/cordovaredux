@@ -1,24 +1,27 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
-import {Observable} from "rxjs";
+import { Injectable } from "@angular/core";
+import { Http, Headers, RequestOptions } from "@angular/http";
+import "rxjs/add/operator/toPromise";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class UserService {
+  private apiHost: string = "http://127.0.0.1:8080";
 
-  private apiHost: string = 'http://127.0.0.1:8080';
+  constructor(private http: Http) {}
 
-  constructor(private http: Http) {
-  }
-
-  public login(email:string, password:string):Observable<any> {
-    let body     : string   = "email="+email+"&password="+password;
-    return this.http.post(this.apiHost+"/authenticate",body).map((response) => {
-      return response.json();
-    })
-      .catch((err) => {
+  public login(email: string, password: string): Observable<any> {
+    let body: string = "name=" + email + "&password=" + password,
+      type: string = "application/x-www-form-urlencoded; charset=UTF-8",
+      headers: any = new Headers({ "Content-Type": type }),
+      options: any = new RequestOptions({ headers: headers });
+    return this.http
+      .post(this.apiHost + "/authenticate", body, options)
+      .map(response => {
+        console.log(response);
+        return response.json();
+      })
+      .catch(err => {
         throw Observable.throw(err);
       });
   }
-  
 }
