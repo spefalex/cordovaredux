@@ -12,11 +12,13 @@ export class UserService {
   }
 
   public login(email:string, password:string):Observable<any> {
-    return this.http.get(this.apiHost+"/authenticate").map((response) => {
+    let body     : string   = "email="+email+"&password="+password;
+    return this.http.post(this.apiHost+"/authenticate",body).map((response) => {
       return response.json();
     })
       .catch((err) => {
         throw Observable.throw(err);
       });
   }
+  
 }
