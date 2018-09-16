@@ -7,6 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import {userReducer} from "../Interface/User/user.reducer";
+import {StoreModule} from "@ngrx/store";
+
+import {UserService} from "../Interface/User/user.service";
+import {UserEffects} from "../Interface/User/user.effects";
+import {EffectsModule} from "@ngrx/effects";
+import {HttpModule} from "@angular/http";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +22,10 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+    StoreModule.forRoot(<any>{userState: userReducer}),
+    EffectsModule.forRoot([UserEffects])
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,6 +35,7 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
