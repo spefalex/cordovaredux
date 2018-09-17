@@ -22,7 +22,7 @@
 
   <ion-row>
     <ion-col>
-      <div *ngIf="error" class="alert alert-danger">Informations d'identification non valides</div>
+      <div *ngIf="message" class="alert alert-danger">{{message}}</div>
       <button ion-button class="submit-btn" full (click)="login()">
         Login
       </button>

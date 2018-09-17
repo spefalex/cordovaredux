@@ -15,7 +15,7 @@ export class UserService {
       headers: any = new Headers({ "Content-Type": type }),
       options: any = new RequestOptions({ headers: headers });
     return this.http
-      .post(this.apiHost + "/authenticate", body, options)
+      .post(this.apiHost + "/authenticate", body,options)
       .map(response => {
         console.log(response);
         return response.json();
@@ -24,4 +24,25 @@ export class UserService {
         throw Observable.throw(err);
       });
   }
+/*
+  public login(email: string, password: string) {
+    return new Promise(resolve => {
+      let data: string = "name=" + email + "&password=" + password;
+      let headers = new Headers({
+        "Content-Type": "application/x-www-form-urlencoded"
+      });
+      let options = new RequestOptions({ headers: headers });
+      let link = this.apiHost + "/authenticate";
+      this.http.post(link, data, options).subscribe(
+        (response) => {
+
+          console.log(response);
+          resolve(response);
+        },
+        error => {
+          resolve(error);
+        }
+      );
+    });
+  }*/
 }

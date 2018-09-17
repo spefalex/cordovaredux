@@ -10,23 +10,30 @@ export const UserActionTypes = {
 export interface UserState {
   loading: boolean,
   error: boolean,
-  user: User
+  user: User,
+  message:string,
+
 }
 
 const initialState: UserState = {
   loading: false,
   error: false,
-  user: null
+  user: null,
+  message:null,
+ 
 };
 
 export class LoginAction implements Action {
   type = UserActionTypes.USER_LOGIN;
   user:User;
+  message
+ 
 
   constructor(public email:string, public password:string) {
 
   }
 }
+
 
 export function userReducer(state: any = initialState, action: LoginAction) {
 
@@ -35,7 +42,7 @@ export function userReducer(state: any = initialState, action: LoginAction) {
       return {...state, loading: true};
 
     case UserActionTypes.USER_LOGIN_SUCCESS:
-      return {...state, user: action.user, loading: false};
+      return {...state, user: action.user, loading: false ,message:action.message};
 
     case UserActionTypes.USER_LOGIN_ERROR:
       return {...state, loading: false, error: true};

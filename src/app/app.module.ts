@@ -10,7 +10,7 @@ import {AcceuilPage} from '../pages/acceuil/acceuil';
 
 import {userReducer} from "../Interface/User/user.reducer";
 import {StoreModule} from "@ngrx/store";
-
+import { StorageService } from '../Interface/Services/storage-service';
 import {UserService} from "../Interface/User/user.service";
 import {UserEffects} from "../Interface/User/user.effects";
 import {EffectsModule} from "@ngrx/effects";
@@ -40,6 +40,7 @@ import {HttpModule} from "@angular/http";
     StatusBar,
     SplashScreen,
     UserService,
+    StorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

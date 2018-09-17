@@ -15,7 +15,7 @@ export class UserEffects {
   login = this.actions.ofType(UserActionTypes.USER_LOGIN)
     .map( (action: LoginAction) => action)
     .switchMap(action => this.userService.login(action.email, action.password)
-      .map(response => ({ type: UserActionTypes.USER_LOGIN_SUCCESS, user: response }))
+      .map(response => ({ type: UserActionTypes.USER_LOGIN_SUCCESS, user: response.token ,message:response.message }))
       .catch(() => Observable.of({ type: UserActionTypes.USER_LOGIN_ERROR }))
     );
 }

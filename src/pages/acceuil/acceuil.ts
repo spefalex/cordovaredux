@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { StorageService } from "../../Interface/Services/storage-service";
 /**
  * Generated class for the AcceuilPage page.
  *
@@ -15,11 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AcceuilPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storageService: StorageService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AcceuilPage');
+    this.storageService.get('idUser').then(data => {
+     console.log(data)
+    });
   }
 
 }
