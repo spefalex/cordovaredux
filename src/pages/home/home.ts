@@ -17,7 +17,7 @@ export class HomePage {
   private password: string;
   private message: string;
   private userStateSubscription: Subscription;
-  imgPreview = 'assets/imgs/blank-avatar.jpg';
+  
   constructor(
     public navCtrl: NavController,
     private store: Store<AppStore>,
