@@ -87,4 +87,5 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="image" />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="com-badrit-base64" spec="^0.2.0" />
 </widget>

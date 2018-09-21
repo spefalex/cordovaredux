@@ -20,6 +20,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/base64": "^4.14.0",
     "@ionic-native/camera": "^4.14.0",
     "@ionic-native/core": "~4.12.0",
     "@ionic-native/image-picker": "^4.14.0",
@@ -30,6 +31,7 @@
     "@ngrx/effects": "^4.1.0",
     "@ngrx/router-store": "^4.1.0",
     "@ngrx/store": "^4.1.0",
+    "com-badrit-base64": "^0.2.0",
     "cordova-android": "7.0.0",
     "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-device": "^2.0.2",
@@ -63,7 +65,8 @@
       "cordova-plugin-telerik-imagepicker": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "image"
       },
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {},
+      "com-badrit-base64": {}
     },
     "platforms": [
       "android"
