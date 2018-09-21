@@ -14,5 +14,10 @@
 
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-label fixed>Avatar</ion-label>
+    <ion-avatar item-end>
+      <img src="{{imgPreview}}" (click)="getPhoto()">
+    </ion-avatar>
+  </ion-item>
 </ion-content>

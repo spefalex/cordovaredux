@@ -14,7 +14,7 @@ import { StorageService } from "../../Interface/Services/storage-service";
   templateUrl: 'acceuil.html',
 })
 export class AcceuilPage {
-
+  imgPreview = 'assets/imgs/blank-avatar.jpg';
   constructor(public navCtrl: NavController, public navParams: NavParams, private storageService: StorageService) {
   }
 

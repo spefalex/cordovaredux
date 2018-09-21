@@ -6,7 +6,6 @@ import { Http } from "@angular/http";
 export class StorageService {
   storage: any;
   data: any;
-  readonly errorCordova: string = "cordova_not_available";
 
   constructor(private http: Http) {}
 
